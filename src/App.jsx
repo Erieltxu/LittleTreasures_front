@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import Navbar from "./components/navbar/Navbar";
 import Login from "./components/login/Login";
 import SignUp from "./components/Signup/SignUp";
-import "./index.css";
-
+import Home from "./pages/Home";
+import Profile from "./components/profile/profile";
 import axios from "axios";
+import './App.css'; // Archivo de estilo para fondo y demás estilos
+import HomeLogin from "./pages/HomeLogin";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
   const [username, setUsername] = useState("");
   const navigate = useNavigate();
+  const location = useLocation(); // Para obtener la ruta actual
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -23,47 +26,53 @@ function App() {
         .then((response) => {
           setIsAuthenticated(true);
           setUser(response.data);
-          setUsername(response.data.username || '');
+          setUsername(response.data.username || "");
         })
-        .catch(error => {
-        console.error('Auth Check Error:', error); 
+        .catch((error) => {
+          console.error("Auth Check Error:", error);
           setIsAuthenticated(false);
           setUser(null);
         });
-      
     }
   }, []);
+
+  // Redirige a la página de inicio si no estás en la página de perfil
+  useEffect(() => {
+    if (isAuthenticated && window.location.pathname !== "/profile") {
+      navigate("/HomeLogin"); // Redirige a la página de inicio solo si estás autenticado
+    }
+  }, [isAuthenticated, navigate]);
 
   const handleLoginSuccess = (user) => {
     setIsAuthenticated(true);
     setUsername(user.username);
-    navigate("/");
+    navigate("/HomeLogin"); // Redirige a la página de perfil después de iniciar sesión
   };
 
-  const handleSignUpSuccess = (user) => {
-    setIsAuthenticated(true);
-    setUsername(user.username); 
-    navigate('/'); 
-
+  const handleSignUpSuccess = () => {
+    navigate("/login"); // Redirige a la página de login después de un registro exitoso
   };
 
   const handleLogout = () => {
     localStorage.removeItem("token");
     setIsAuthenticated(false);
     setUsername("");
-    navigate("/");
+    navigate("/"); // Redirige a la página de inicio después de cerrar sesión
   };
 
   return (
-    <div>
-      <Navbar
-        isAuthenticated={isAuthenticated}
-        username={username}
-        onLogout={handleLogout}
-      />
+    <div className="app-background">
+      {/* Muestra el Navbar solo si no estás en la página de inicio */}
+      {location.pathname !== "/" && (
+        <Navbar
+          isAuthenticated={isAuthenticated}
+          username={username}
+          onLogout={handleLogout}
+        />
+      )}
 
       <Routes>
-     
+        <Route path="/" element={<Home />} />
         <Route
           path="/login"
           element={<Login onLoginSuccess={handleLoginSuccess} />}
@@ -72,10 +81,13 @@ function App() {
           path="/signup"
           element={<SignUp onSignUpSuccess={handleSignUpSuccess} />}
         />
-        
-     
+        <Route path="/profile" element={<Profile onLogout={handleLogout} />} />
+        <Route
+          path="/HomeLogin"
+          element={<HomeLogin username={username} />} // 
+        />
+        <Route path="/" />
       </Routes>
-
     </div>
   );
 }
