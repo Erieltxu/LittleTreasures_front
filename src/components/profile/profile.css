@@ -1,0 +1,139 @@
+/* Contenedor de perfil */
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    background-color: #F6921D; 
+    border-radius: 2rem;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    max-width: 22rem;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 5rem;
+}
+
+@media (min-width: 768px) {
+    .profile-container {
+        max-width: 28rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .profile-container {
+        max-width: 40rem;
+    }
+}
+
+/* Título */
+.profile-title {
+    font-size: 2rem;
+    color: #fff; 
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Formulario */
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;  /* Espacio uniforme entre los campos */
+}
+
+/* Estilo general para las etiquetas */
+form label {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    font-size: 1rem;
+    color: #fff;
+}
+
+/* Inputs no editables */
+form .non-editable {
+    background: none;
+    border: none;
+    color: #000;
+    font-size: 1rem;
+    padding: 0.4rem 0;
+    width: 100%; 
+    outline: none;
+    cursor: default;
+}
+
+/* Inputs editables: ahora todos tendrán el mismo tamaño */
+form input {
+    padding: 0.5rem; /* Uniforme para todos */
+    border-radius: 0.8rem;
+    border: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Asegura que todos los campos ocupen el 100% del ancho disponible */
+    height: 40px; /* Fija la altura de todos los inputs */
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+}
+
+/* Inputs enfocados */
+form input:focus {
+    outline: none;
+    border: 2px solid #fff;
+}
+
+/* Botón de Update Profile: reducido a la mitad */
+form button {
+    width: 50%;
+    padding: 0.6rem;
+    border: none;
+    border-radius: 1.5rem; 
+    background-color: #fff;
+    color: #F6921D; 
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0 auto;
+}
+
+form button:hover {
+    background-color: #e6e6e6; 
+}
+
+/* Mensajes de error */
+.error {
+    color: red;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* Responsive para pantallas móviles */
+@media (max-width: 768px) {
+    .profile-container {
+        padding: 1rem;
+        margin-top: 3rem;
+    }
+
+    .profile-title {
+        font-size: 1.8rem;
+    }
+
+    form label {
+        font-size: 0.9rem;
+    }
+
+    form input {
+        width: 100%; 
+        margin-left: 0;
+    }
+
+    form button {
+        padding: 0.6rem;
+        width: 70%; 
+    }
+
+    .save-preferences-button,
+    .saved-locations-button,
+    .my-collection-button,
+    .my-itineraries {
+        font-size: 0.9rem;
+    }
+}

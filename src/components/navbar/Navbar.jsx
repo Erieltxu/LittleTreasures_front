@@ -11,7 +11,7 @@ function Navbar({ isAuthenticated, userName, onLogout }) {
     apiEndpoint: isAuthenticated ? USER_DETAIL : null,
     method: 'GET',  
     headers: {
-        Authorization: `Token ${localStorage.getItem('token')}`
+      Authorization: `Token ${localStorage.getItem('token') || ''}` // Verifica si el token existe
     }
   });
 
@@ -24,14 +24,16 @@ function Navbar({ isAuthenticated, userName, onLogout }) {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        
-        {isAuthenticated && <p className="welcome-message">Hi, {username}</p>}
+        <Link to="/">
+          <img src="/img/logo.jfif" alt="PythonTrip" />
+        </Link>
+        {isAuthenticated && <p className="welcome-message">Hi, {username || userName}</p>}
       </div>
       <ul className="navbar-links">
         {isAuthenticated ? (
           <>
             <li><button onClick={onLogout} className="navbar-button">Logout</button></li>
-            <li><Link to="/user" className="navbar-button">Profile</Link></li>
+            <li><Link to="/profile" className="navbar-button">Profile</Link></li>
           </>
         ) : (
           <>

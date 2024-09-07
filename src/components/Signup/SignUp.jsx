@@ -32,7 +32,7 @@ const Signup = ({ onSignUpSuccess }) => {
       if (onSignUpSuccess) {
         onSignUpSuccess(data); 
       }
-      navigate('/'); 
+      navigate('/login'); 
     }
   }, [data, navigate, onSignUpSuccess]);
 
