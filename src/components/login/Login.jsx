@@ -9,7 +9,7 @@ function Login({ onLoginSuccess }) {
   const [password, setPassword] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
-  
+
   const navigate = useNavigate();
 
   const { data, loading, error: apiError } = useApi({
@@ -21,14 +21,17 @@ function Login({ onLoginSuccess }) {
   useEffect(() => {
     if (data) {
       console.log('Login successful:', data);
-      localStorage.setItem('token', data.token);
+      localStorage.setItem('token', data.token); // Guarda el token en localStorage
       console.log('Token set in localStorage:', localStorage.getItem('token'));
+
       if (onLoginSuccess) {
-        onLoginSuccess({ username: data.username });
+        onLoginSuccess({ username }, data.token); // Pasa el username del formulario y el token
       }
-      navigate('/');
+
+      // Redirigir a HomeLogin tras el login exitoso
+      navigate('/HomeLogin');
     }
-  }, [data, navigate, onLoginSuccess]);
+  }, [data, navigate, onLoginSuccess, username]);
 
   useEffect(() => {
     if (apiError) {
@@ -38,7 +41,7 @@ function Login({ onLoginSuccess }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitted(true); // Disparar el envío a la API
   };
 
   const handleBackToHome = () => {

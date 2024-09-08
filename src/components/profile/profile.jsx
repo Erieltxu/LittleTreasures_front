@@ -41,9 +41,9 @@ function Profile({ onLogout }) {
                 first_name: userData.first_name || '',
                 last_name: userData.last_name || ''
             });
-
-            // Inicializa el estado de los hijos si está disponible
-            setChildren(userData.children || []);
+    
+            // Asegúrate de que los hijos se carguen desde `userData`
+            setChildren(userData.children || []);  // Cargar hijos si están disponibles
         }
     }, [userData]);
 

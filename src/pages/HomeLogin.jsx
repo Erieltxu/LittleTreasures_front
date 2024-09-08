@@ -11,7 +11,7 @@ function HomeLogin() {
       <img src="/img/logo.jfif" alt="Logo" className="home-logo" />
       <h2>LITTLE<br /> TREASURES</h2>
       <div className="home-buttons"> 
-        <button 
+      <button 
           className="home-button"  
           onClick={() => navigate('/events')}
         >

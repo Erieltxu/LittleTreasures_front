@@ -1,0 +1,43 @@
+.events-page {
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.events-grid {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.events-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.events-header {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.event-column {
+  flex: 1;
+  text-align: center;
+}
+
+.event-column:first-child {
+  flex: 2; /* Aumenta el tamaño de la columna del nombre */
+}
+
+.events-row:last-child {
+  border-bottom: none; /* Eliminar el borde de la última fila */
+}
