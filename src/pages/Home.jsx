@@ -8,7 +8,7 @@ function Home() {
   return (
     <main className="main">
       {/* Logo encima del título */}
-      <img src="/img/logo.jfif" alt="Logo" className="home-logo" />
+      <img src="assets/img/logo.jfif" alt="Logo" className="home-logo" />
       <h2>LITTLE<br /> TREASURES</h2>
       <div className="home-buttons">
         <button 

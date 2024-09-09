@@ -1,71 +1,85 @@
-.login-form {
-    width: 100%;
-    background-color: #fff;
-    padding: 1rem; 
-    border-radius: 1.5rem; 
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); 
-  }
-  
-  .form-group {
-    margin-bottom: 1.5rem;
-  }
-  
-  .form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .form-group input {
-    width: 100%;
-    padding: 0.8rem;
-    border: 1rem solid #ccc; 
-    border-radius: 1rem; 
-    font-size: 1rem;
-    background-color: #fff; 
-    box-sizing: border-box;
-  }
-  
-  
-  input[type="text"], input[type="username"], input[type="password"], input[type="number"] {
-    padding: 0.8rem;
-    background-color: #fff;
-  }
-  
-  .login-form .form-group input {
-    font-size: 1.2rem; 
-  }
+.login-form-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 
- 
-  .login-button {
-    width: 100%;
-    padding: 0.8rem;
-    border: none;
-    border-radius: 1rem;
-    background-color: #fff;
-    color: #F6921D; 
-    font-size: 1rem;
-    cursor: pointer;
-  }
-  
-  .login-button:hover {
-    background-color: #e6e6e6; 
-  }
-  
-  .error-message {
-    color: red; 
-    font-size: 0.9rem;
-    margin-top: 0.5rem;
-  }
-  
-  .back-arrow {
-    position: absolute;
-    left: 1rem;
-    cursor: pointer;
-  }
-  
-  .arrow-icon {
-    width: 1.5rem;
-    height: 1.5rem;
-  }
+.login-form {
+  width: 100%;
+  max-width: 400px;
+  background-color: #eeecec;
+  padding: 1rem; 
+  border-radius: 1.5rem; 
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); 
+  position: relative;
+}
+
+.form-header {
+  position: relative;
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.back-arrow {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.arrow-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.login-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+ font-size: 3rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc; 
+  border-radius: 1rem; 
+  font-size: 1.5rem;
+  background-color: #fff; 
+  box-sizing: border-box;
+}
+
+.login-button {
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 1rem;
+  background-color: #fff;
+  color: #181717; 
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background-color: #e6e6e6;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}

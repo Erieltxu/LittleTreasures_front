@@ -9,6 +9,7 @@ import axios from "axios";
 import './App.css'; // Archivo de estilo para fondo y demás estilos
 import HomeLogin from "./pages/HomeLogin";
 import Events from "./pages/Events";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -75,38 +76,39 @@ function App() {
 
   return (
     <div className="app-background">
-      {/* Mostrar el Navbar solo si no estamos en Home o HomeLogin */}
-      {location.pathname !== "/" && location.pathname !== "/HomeLogin" && (
+      {location.pathname !== "/" && (
         <Navbar
           isAuthenticated={isAuthenticated}
           username={username}
           onLogout={handleLogout}
         />
       )}
-
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route
-          path="/login"
-          element={<Login onLoginSuccess={handleLoginSuccess} />}
-        />
-        <Route
-          path="/signup"
-          element={<SignUp onSignUpSuccess={handleSignUpSuccess} />}
-        />
-        <Route
-          path="/profile"
-          element={isAuthenticated ? <Profile onLogout={handleLogout} /> : <Home />} // Redirigir a Home si no está autenticado
-        />
-        <Route
-          path="/HomeLogin"
-          element={<HomeLogin username={username} />} // Redirigir aquí tras el login
-        />
-        <Route
-          path="/events"
-          element={isAuthenticated ? <Events /> : <Home />} // Acceso a eventos solo si está autenticado
-        />
-      </Routes>
+      <main className="content">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route
+                path="/login"
+                element={<Login onLoginSuccess={handleLoginSuccess} />}
+              />
+              <Route
+                path="/signup"
+                element={<SignUp onSignUpSuccess={handleSignUpSuccess} />}
+              />
+              <Route
+                path="/profile"
+                element={isAuthenticated ? <Profile onLogout={handleLogout} /> : <Home />} // Redirigir a Home si no está autenticado
+              />
+              <Route
+                path="/HomeLogin"
+                element={<HomeLogin username={username} />} // Redirigir aquí tras el login
+              />
+              <Route
+                path="/events"
+                element={isAuthenticated ? <Events /> : <Home />} // Acceso a eventos solo si está autenticado
+              />
+            </Routes>
+        </main>
+      <Footer />
     </div>
   );
 }

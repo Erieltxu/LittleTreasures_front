@@ -49,37 +49,39 @@ function Login({ onLoginSuccess }) {
   };
 
   return (
-    <div className="login-container">
-      <div className="back-arrow" onClick={handleBackToHome}>
-        <img src="/assets/icons/Arrow.svg" alt="Back to Home" className="arrow-icon" />
+    <div className="login-form-container">
+    <form className="login-form" onSubmit={handleSubmit}>
+      <div className="form-header">
+        <div className="back-arrow" onClick={handleBackToHome}>
+          <img src="/assets/icons/Arrow.svg" alt="Back to Home" className="arrow-icon" />
+        </div>
+        <h2 className="login-title">Login</h2>
       </div>
+      <div className="form-group">
+        <label htmlFor="username">Username:</label>
+        <input
+          type="text"
+          id="username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          required
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+      </div>
+      {error && <p className="error-message">{error}</p>}
+      <button type="submit" className="login-button">Login</button>
+    </form>
+  </div>
 
-      <h2 className="login-title">Login</h2>
-      <form className="login-form" onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="username">Username:</label>
-          <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        {error && <p className="error-message">{error}</p>}
-        <button type="submit" className="login-button">Login</button>
-      </form>
-    </div>
   );
 }
 

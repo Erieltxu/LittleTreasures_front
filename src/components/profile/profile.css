@@ -1,36 +1,43 @@
 /* Contenedor de perfil */
 .profile-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem;
-    background-color: #F6921D; 
+    max-width: 800px;
+    width: 80%; /* Usa un porcentaje para que el contenedor sea más estrecho en pantallas grandes */
+    margin: 5rem auto; /* Deja espacio debajo del Navbar */
+    padding: 0.1rem 1rem;
+    background-color: #eeecec;
     border-radius: 2rem;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    max-width: 22rem;
-    width: 100%;
-    margin: 0 auto;
-    margin-top: 5rem;
+    position: relative;
+    overflow: hidden;
 }
 
-@media (min-width: 768px) {
-    .profile-container {
-        max-width: 28rem;
-    }
+/* Contenedor para hacer scroll solo en el formulario */
+.form-scroll {
+    max-height: 70vh;
+    overflow-y: auto;
+    padding-right: 1rem;
 }
 
-@media (min-width: 1024px) {
-    .profile-container {
-        max-width: 40rem;
-    }
+/* Flecha de regreso */
+.back-arrow {
+    position: absolute;
+    margin-top: 2rem;
+    left: 1rem;
+    cursor: pointer;
+}
+
+.arrow-icon {
+    width: 2rem;
+    height: 2rem;
 }
 
 /* Título */
 .profile-title {
-    font-size: 2rem;
-    color: #fff; 
+    font-size: 2.5rem;
+    color: #000;
     margin-bottom: 1rem;
     text-align: center;
+    margin-top: 2rem;
 }
 
 /* Formulario */
@@ -38,64 +45,118 @@ form {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;  /* Espacio uniforme entre los campos */
+    gap: 1rem;
+    font-size: 1.5rem;
 }
 
-/* Estilo general para las etiquetas */
 form label {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-    font-size: 1rem;
-    color: #fff;
+    font-size: 1.5rem;
+    color: #000;
 }
 
 /* Inputs no editables */
 form .non-editable {
-    background: none;
-    border: none;
+    background-color: #fff;
+    border: 1px solid #000;
     color: #000;
-    font-size: 1rem;
-    padding: 0.4rem 0;
-    width: 100%; 
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    width: 100%;
     outline: none;
     cursor: default;
 }
 
-/* Inputs editables: ahora todos tendrán el mismo tamaño */
+/* Inputs editables */
 form input {
-    padding: 0.5rem; /* Uniforme para todos */
+    padding: 0.5rem;
     border-radius: 0.8rem;
-    border: none;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    width: 100%; /* Asegura que todos los campos ocupen el 100% del ancho disponible */
-    height: 40px; /* Fija la altura de todos los inputs */
-    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+    border: 1px solid #000;
+    background-color: #fff;
+    color: #000;
+    width: 100%;
+    height: 40px;
+    box-sizing: border-box;
+    font-size: 1.5rem;
 }
 
-/* Inputs enfocados */
 form input:focus {
     outline: none;
-    border: 2px solid #fff;
+    border: 2px solid #000;
 }
 
-/* Botón de Update Profile: reducido a la mitad */
+/* Botón de Update Profile con borde negro */
 form button {
     width: 50%;
     padding: 0.6rem;
-    border: none;
-    border-radius: 1.5rem; 
+    border: 1px solid #000;
+    border-radius: 1.5rem;
     background-color: #fff;
-    color: #F6921D; 
+    color: #000;
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin: 0 auto;
+    margin: 1rem auto;
 }
 
 form button:hover {
-    background-color: #e6e6e6; 
+    background-color: #e6e6e6;
+}
+
+/* Sección Añadir Hijo */
+.add-child-section {
+    width: 100%;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.add-child-section h3 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/* Formulario de Añadir Hijo en dos columnas centradas */
+.add-child-section form {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    text-align: center;
+    width: 100%;
+}
+
+.add-child-section form label {
+    flex: 1 1 calc(50% - 1rem);
+    text-align: center;
+}
+
+.add-child-section form input {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 0.8rem;
+    border: 1px solid #000;
+}
+
+/* Botón de Añadir Hijo en una línea y con borde negro */
+.add-child-section button {
+    border: 1px solid #000;
+    background-color: #fff;
+    color: #000;
+    border-radius: 1rem;
+    padding: 0.6rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 50%;
+    text-align: center;
+    margin: 1rem auto 0 auto;
+}
+
+.add-child-section button:hover {
+    background-color: #e6e6e6;
 }
 
 /* Mensajes de error */
@@ -105,11 +166,82 @@ form button:hover {
     text-align: center;
 }
 
-/* Responsive para pantallas móviles */
-@media (max-width: 768px) {
+/* Lista de hijos */
+.children-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+h3 {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.9rem;
+}
+
+.children-list li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 0;
+}
+
+.children-list button {
+    border: none;
+    background-color: transparent;
+    color: red;
+    cursor: pointer;
+}
+
+/* Sección de eliminación del perfil */
+.delete-profile-section {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.delete-profile-section button {
+    padding: 0.6rem;
+    border: 1px solid #000;
+    border-radius: 1.5rem;
+    background-color: #fff;
+    color: #000;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+/* Estilo cuando el botón está deshabilitado */
+.delete-profile-section button:disabled {
+    background-color: #e6e6e6;
+    color: #999;
+    cursor: not-allowed;
+}
+
+.delete-profile-section button:hover:enabled {
+    background-color: #f0f0f0;
+}
+
+/* Media query para pantallas más grandes */
+@media (min-width: 1024px) {
     .profile-container {
-        padding: 1rem;
+        width: 60%; /* Más ancho en pantallas grandes */
+    }
+}
+
+/* Media query para pantallas medianas */
+@media (max-width: 1024px) {
+    .profile-container {
+        width: 70%; /* Ajuste para pantallas medianas */
+    }
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 414px) {
+    .profile-container {
+        width: 90%; /* Ajuste para dispositivos móviles */
         margin-top: 3rem;
+        padding: 1rem;
     }
 
     .profile-title {
@@ -121,19 +253,14 @@ form button:hover {
     }
 
     form input {
-        width: 100%; 
-        margin-left: 0;
+        width: 100%;
     }
 
-    form button {
-        padding: 0.6rem;
-        width: 70%; 
+    form button, .add-child-section button {
+        width: 70%;
     }
 
-    .save-preferences-button,
-    .saved-locations-button,
-    .my-collection-button,
-    .my-itineraries {
-        font-size: 0.9rem;
+    .add-child-section form label {
+        flex: 1 1 100%;
     }
 }

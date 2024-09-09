@@ -18,7 +18,7 @@ function Profile({ onLogout }) {
         first_name: '',
         date_of_birth: '',
     });
-    const [children, setChildren] = useState([]);  // Nuevo estado para los hijos
+    const [children, setChildren] = useState([]);
     const [isConfirmed, setIsConfirmed] = useState(false);
     const { data: userData, loading: userLoading, error: userError } = UseApi({ apiEndpoint: USER_DETAIL });
     const [updateError, setUpdateError] = useState(null);
@@ -31,7 +31,6 @@ function Profile({ onLogout }) {
     
     useEffect(() => {
         if (userData) {
-            console.log("Datos del usuario cargados:", userData);
             setUser({
                 username: userData.username || '',
                 email: userData.email || '',
@@ -41,14 +40,12 @@ function Profile({ onLogout }) {
                 first_name: userData.first_name || '',
                 last_name: userData.last_name || ''
             });
-    
-            // Asegúrate de que los hijos se carguen desde `userData`
-            setChildren(userData.children || []);  // Cargar hijos si están disponibles
+            setChildren(userData.children || []);
         }
     }, [userData]);
 
     const handleBackToHome = () => {
-        navigate('/');
+        navigate('/HomeLogin');
     };
 
     const handleChange = (e) => {
@@ -82,14 +79,11 @@ function Profile({ onLogout }) {
 
             if (!response.ok) {
                 const errorData = await response.json();
-                console.log("Error desde el servidor:", errorData);
                 throw new Error('Failed to update profile');
             }
 
             const data = await response.json();
-            console.log('Perfil actualizado correctamente:', data);
         } catch (error) {
-            console.error('Error al actualizar el perfil:', error);
             setUpdateError(error.message);
         } finally {
             setIsSubmitting(false);
@@ -125,20 +119,13 @@ function Profile({ onLogout }) {
     
             if (!response.ok) {
                 const errorData = await response.json();
-                console.log("Error al añadir hijo:", errorData);
                 throw new Error('Failed to add child');
             }
     
             const data = await response.json();
-            console.log('Hijo añadido correctamente:', data);
-    
-            // Actualiza el estado local de los hijos
             setChildren((prevChildren) => [...prevChildren, data]);
-
-            // Limpia el formulario de añadir hijo
             setChild({ first_name: '', date_of_birth: '' });
         } catch (error) {
-            console.error('Error al añadir el hijo:', error);
             setChildError(error.message);
         } finally {
             setIsChildSubmitting(false);
@@ -158,12 +145,8 @@ function Profile({ onLogout }) {
                 throw new Error('Failed to delete child');
             }
     
-            console.log('Hijo eliminado correctamente');
-    
-            // Actualiza el estado local de los hijos
             setChildren((prevChildren) => prevChildren.filter(child => child.id !== childId));
         } catch (error) {
-            console.error('Error al eliminar el hijo:', error);
         }
     };
 
@@ -179,13 +162,11 @@ function Profile({ onLogout }) {
             if (!response.ok) {
                 throw new Error('Failed to delete profile');
             }
-            console.log('Profile deleted successfully');
 
             localStorage.removeItem('token');
             onLogout();
             navigate('/');
         } catch (error) {
-            console.error('Delete profile error:', error);
             setDeleteError(error.message);
         }
     };
@@ -197,159 +178,144 @@ function Profile({ onLogout }) {
     return (
         <div className="profile-container">
             <div className="back-arrow" onClick={handleBackToHome}>
-                <img src="/assets/icons/Arrow.svg" alt="Back to Home" className="arrow-icon" />
+                <img src="/assets/icons/Arrow.svg" alt="Back to HomeLogin" className="arrow-icon" />
             </div>
 
             <h2 className="profile-title">Bienvenido, {user.username}</h2>
 
-            <form onSubmit={handleUpdateProfile}>
-                <label>
-                    Nombre:
-                    <input
-                        type="text"
-                        name="first_name"
-                        value={user.first_name}
-                        className="non-editable" /* Aquí agregas la clase */
-                        readOnly
-                    />
-                </label>
-                <br />
-                <label>
-                    Apellido:
-                    <input
-                        type="text"
-                        name="last_name"
-                        value={user.last_name}
-                        className="non-editable" /* Aquí agregas la clase */
-            readOnly
-                    />
-                </label>
-                <br />
-                <label>
-                    Username:
-                    <input
-                        type="text"
-                        name="username"
-                        value={user.username}
-                        onChange={handleChange}
-                        required
-                    />
-                </label>
-                <br />
-                <label>
-                    Email:
-                    <input
-                        type="email"
-                        name="email"
-                        value={user.email}
-                        onChange={handleChange}
-                        required
-                    />
-                </label>
-                <br />
-                <label>
-                    Current Password:
-                    <input
-                        type="password"
-                        name="current_password"
-                        value={user.current_password}
-                        onChange={handleChange}
-                        required
-                    />
-                </label>
-                <br />
-                <label>
-                    New Password:
-                    <input
-                        type="password"
-                        name="password"
-                        value={user.password}
-                        onChange={handleChange}
-                    />
-                </label>
-                <br />
-                <label>
-                    Confirm New Password:
-                    <input
-                        type="password"
-                        name="confirm_password"
-                        value={user.confirm_password}
-                        onChange={handleChange}
-                    />
-                </label>
-                <br />
-                <button type="submit" disabled={isSubmitting}>Update Profile</button>
-                {updateError && <p className="error">{updateError}</p>}
-            </form>
-
-            <div className="add-child-section">
-                <h3>Añadir Hijo</h3>
-                <form onSubmit={handleAddChild}>
+            <div className="form-scroll"> {/* Contenedor con scroll que incluye todas las secciones */}
+                <form onSubmit={handleUpdateProfile}>
                     <label>
                         Nombre:
                         <input
                             type="text"
                             name="first_name"
-                            value={child.first_name}
-                            onChange={handleChildChange}
-                            required
+                            value={user.first_name}
+                            className="non-editable"
+                            readOnly
                         />
                     </label>
-                    <br />
                     <label>
-                        Fecha de Nacimiento:
+                        Apellido:
                         <input
-                            type="date"
-                            name="date_of_birth"
-                            value={child.date_of_birth}
-                            onChange={handleChildChange}
+                            type="text"
+                            name="last_name"
+                            value={user.last_name}
+                            className="non-editable"
+                            readOnly
+                        />
+                    </label>
+                    <label>
+                        Username:
+                        <input
+                            type="text"
+                            name="username"
+                            value={user.username}
+                            onChange={handleChange}
                             required
                         />
                     </label>
-                    <br />
-                    <button type="submit">Añadir Hijo</button>
-                    {childError && <p className="error">{childError}</p>}
+                    <label>
+                        Email:
+                        <input
+                            type="email"
+                            name="email"
+                            value={user.email}
+                            onChange={handleChange}
+                            required
+                        />
+                    </label>
+                    <label>
+                        Current Password:
+                        <input
+                            type="password"
+                            name="current_password"
+                            value={user.current_password}
+                            onChange={handleChange}
+                            required
+                        />
+                    </label>
+                    <label>
+                        New Password:
+                        <input
+                            type="password"
+                            name="password"
+                            value={user.password}
+                            onChange={handleChange}
+                        />
+                    </label>
+                    <label>
+                        Confirm New Password:
+                        <input
+                            type="password"
+                            name="confirm_password"
+                            value={user.confirm_password}
+                            onChange={handleChange}
+                        />
+                    </label>
+                    <button type="submit" disabled={isSubmitting}>Update Profile</button>
+                    {updateError && <p className="error">{updateError}</p>}
                 </form>
 
-                {/* Mostrar el userId al lado del botón */}
-                {userData && userData.id && (
-                    <div className="user-id-section">
-                        <p>ID del usuario conectado: <strong>{userData.id}</strong></p>
-                    </div>
-                )}
-            </div>
-
-            {/* Mostrar lista de hijos */}
-            {children.length > 0 ? (
-                <div className="children-list">
-                    <h3>Hijos:</h3>
-                    <ul>
-                        {children.map((child) => (
-                            <li key={child.id}>
-                                {child.first_name} - {child.date_of_birth}
-                                <button onClick={() => handleDeleteChild(child.id)}>Eliminar</button>
-                            </li>
-                        ))}
-                    </ul>
+                <div className="add-child-section">
+                    <h3>Añadir Hijo</h3>
+                    <form onSubmit={handleAddChild}>
+                        <label>
+                            Nombre:
+                            <input
+                                type="text"
+                                name="first_name"
+                                value={child.first_name}
+                                onChange={handleChildChange}
+                                required
+                            />
+                        </label>
+                        <label>
+                            Fecha de Nacimiento:
+                            <input
+                                type="date"
+                                name="date_of_birth"
+                                value={child.date_of_birth}
+                                onChange={handleChildChange}
+                                required
+                            />
+                        </label>
+                        <button type="submit">Añadir Hijo</button>
+                        {childError && <p className="error">{childError}</p>}
+                    </form>
                 </div>
-            ) : (
-                <p>No se han añadido hijos aún.</p>
-            )}
 
-            <div className="delete-profile-section">
-                <label>
-                    <input
-                        type="checkbox"
-                        checked={isConfirmed}
-                        onChange={handleCheckboxChange}
-                    />
-                    Confirm delete profile
-                </label>
-                <br />
-                <button onClick={handleDeleteProfile} disabled={!isConfirmed || isSubmitting}>
-                    Delete Profile
-                </button>
-                {deleteError && <p className="error">{deleteError}</p>}
+                {children.length > 0 ? (
+                    <div className="children-list">
+                        <h3>Hijos:</h3>
+                        <ul>
+                            {children.map((child) => (
+                                <li key={child.id}>
+                                    {child.first_name} - {child.date_of_birth}
+                                    <button onClick={() => handleDeleteChild(child.id)}>Eliminar</button>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                ) : (
+                    <p>No se han añadido hijos aún.</p>
+                )}
+
+                <div className="delete-profile-section">
+                    <label>
+                        <input
+                            type="checkbox"
+                            checked={isConfirmed}
+                            onChange={handleCheckboxChange}
+                        />
+                        Confirm delete profile
+                    </label>
+                    <br />
+                    <button onClick={handleDeleteProfile} disabled={!isConfirmed || isSubmitting}>
+                        Delete Profile
+                    </button>
+                    {deleteError && <p className="error">{deleteError}</p>}
+                </div>
             </div>
         </div>
     );
