@@ -25,20 +25,20 @@ function Navbar({ isAuthenticated, userName, onLogout }) {
     <nav className="navbar">
       <div className="navbar-logo">
         <Link to="/">
-          <img src="/img/logo.jfif" alt="PythonTrip" />
+          <img src="assets/img/logo.jfif" alt="Logo" />
         </Link>
         {isAuthenticated && <p className="welcome-message">Hi, {username || userName}</p>}
       </div>
       <ul className="navbar-links">
         {isAuthenticated ? (
           <>
-            <li><button onClick={onLogout} className="navbar-button">Logout</button></li>
-            <li><Link to="/profile" className="navbar-button">Profile</Link></li>
+            <li><button onClick={onLogout} className="navbar-button">Cerrar Sesión</button></li>
+            <li><Link to="/profile" className="navbar-button">Area Cliente</Link></li>
           </>
         ) : (
           <>
-            <li><Link to="/login" className="navbar-button">Login</Link></li>
-            <li><Link to="/signup" className="navbar-button">Sign Up</Link></li>
+            <li><Link to="/login" className="navbar-button">Acceso</Link></li>
+            <li><Link to="/signup" className="navbar-button">Registro</Link></li>
           </>
         )}
       </ul>

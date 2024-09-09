@@ -1,0 +1,63 @@
+.events-page {
+  position: relative;
+  background-color: white; /* Añadir un color de fondo sólido a la página de eventos */
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.events-grid {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+  background-color: #fff; /* Añadir fondo blanco a la tabla de eventos */
+}
+
+.events-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.events-header {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.event-column {
+  flex: 1;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.event-column:first-child {
+  flex: 2; /* Aumenta el tamaño de la columna del nombre */
+}
+
+.events-row:last-child {
+  border-bottom: none; /* Eliminar el borde de la última fila */
+}
+
+.event-column:hover {
+  background-color: #f0f0f0; /* Cambia el color de fondo al pasar el cursor */
+  cursor: pointer; /* Cambia el cursor a una mano para indicar que es clickeable */
+}
+
+.back-arrow {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  cursor: pointer;
+}
+
+.arrow-icon {
+  width: 2rem;
+  height: 2rem;
+}

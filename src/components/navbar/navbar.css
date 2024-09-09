@@ -10,6 +10,7 @@
   height: 5rem;
   padding: 0 2rem; /* Espaciado lateral */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave debajo */
+  z-index: 1000; /* Asegura que el Navbar siempre esté encima */
 }
 
 /* Logo y mensaje a la izquierda */

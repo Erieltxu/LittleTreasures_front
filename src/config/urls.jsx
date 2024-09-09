@@ -5,3 +5,6 @@ export const USER_LOGIN = `${BASE_URL}login/`;
 export const UPDATE_USER = `${BASE_URL}profile/update/`; // Para actualizar el perfil
 export const DELETE_USER = `${BASE_URL}profile/delete/`; // Para eliminar el perfil
 export const CHILDREN_API = `${BASE_URL}children/`;
+export const EVENTS_API = `${BASE_URL}events/`;
+export const REGISTRATIONS_API = `${BASE_URL}registrations/`;
+export const USER_API = '/api/user/';

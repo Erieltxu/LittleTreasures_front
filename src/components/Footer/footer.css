@@ -1,0 +1,64 @@
+.footerWrapp {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* Espacio entre los iconos y el texto */
+  align-items: center;
+  background-color: #F6921D;
+  position: fixed;
+  bottom: 0;
+  width: 100%; /* Asegura que el footer ocupe todo el ancho */
+  height: 3.5rem;
+  padding: 0; /* Elimina el padding redundante */
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave arriba del footer */
+  z-index: 1000;
+}
+
+.imgFooterContainer {
+  display: flex;
+  justify-content: flex-start; /* Alinea los iconos a la izquierda */
+  align-items: center;
+  width: auto;
+  padding-left: 1rem;
+}
+
+.imgFooterContainer img {
+  margin: 0 5px;
+  max-height: 2.5rem;
+}
+
+.footerP {
+  color: black;
+  margin-left: auto; /* Alinea el texto al extremo derecho */
+  font-size: 1.5rem;
+  white-space: nowrap; /* Asegura que el texto no se divida en varias líneas */
+  padding-right: 1rem;
+}
+
+/* Versión para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+  .footerWrapp {
+    flex-direction: column; /* Cambia a columna en móviles */
+    height: auto; /* Permite que el footer crezca si es necesario */
+    padding: 0.5rem 1rem; /* Ajusta el padding para móviles */
+  }
+
+  .imgFooterContainer {
+    justify-content: center; /* Centra los iconos en móviles */
+    margin-bottom: 0.5rem; /* Espacio entre los iconos y el texto */
+  }
+
+  .footerP {
+    margin-left: 0;
+    font-size: 1.5rem; /* Ajusta el tamaño del texto en móviles */
+    text-align: center; /* Centra el texto en móviles */
+    white-space: nowrap; /* Evita que el texto se divida en dos líneas */
+  }
+}
+
+/* Versión para pantallas grandes */
+@media (min-width: 1024px) {
+  .footerWrapp {
+    max-width: 1440px; /* Alinea el ancho del footer con el del navbar */
+    margin: 0 auto; /* Centra el footer en pantallas grandes */
+  }
+}

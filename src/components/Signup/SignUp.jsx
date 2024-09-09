@@ -46,12 +46,14 @@ const Signup = ({ onSignUpSuccess }) => {
   };
 
   return (
-    <div className="signup-container">
-      <div className="back-arrow" onClick={handleBackToHome}>
-        <img src="/assets/icons/Arrow.svg" alt="Back to Home" className="arrow-icon" />
-      </div>
-      <h2 className="signup-title">Sign Up</h2>
+    <div className="signup-form-container">
       <form onSubmit={handleSubmit} className="signup-form">
+        <div className="form-header">
+          <div className="back-arrow" onClick={handleBackToHome}>
+            <img src="/assets/icons/Arrow.svg" alt="Back to Home" className="arrow-icon" />
+          </div>
+          <h2 className="signup-title">Sign Up</h2>
+        </div>
         <div className="form-group">
           <label htmlFor="first_name">First Name</label>
           <input
