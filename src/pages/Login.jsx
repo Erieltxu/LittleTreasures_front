@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import useApi from '../../services/useApi';
+import useApi from '../services/useApi';
 import { useNavigate } from 'react-router-dom';
-import { USER_LOGIN } from '../../config/urls';
+import { USER_LOGIN } from '../config/urls';
 import './login.css';
 
 function Login({ onLoginSuccess }) {
@@ -21,14 +21,14 @@ function Login({ onLoginSuccess }) {
   useEffect(() => {
     if (data) {
       console.log('Login successful:', data);
-      localStorage.setItem('token', data.token); // Guarda el token en localStorage
+      localStorage.setItem('token', data.token); 
       console.log('Token set in localStorage:', localStorage.getItem('token'));
 
       if (onLoginSuccess) {
-        onLoginSuccess({ username }, data.token); // Pasa el username del formulario y el token
+        onLoginSuccess({ username }, data.token); 
       }
 
-      // Redirigir a HomeLogin tras el login exitoso
+      
       navigate('/HomeLogin');
     }
   }, [data, navigate, onLoginSuccess, username]);
@@ -41,7 +41,7 @@ function Login({ onLoginSuccess }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSubmitted(true); // Disparar el envío a la API
+    setSubmitted(true); 
   };
 
   const handleBackToHome = () => {

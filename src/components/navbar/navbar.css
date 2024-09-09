@@ -1,41 +1,40 @@
-/* Navbar general */
 .navbar {
   display: flex;
-  justify-content: space-between; /* Alinea logo a la izquierda, botones a la derecha */
+  justify-content: space-between; 
   align-items: center;
   background-color: #ffffff;
   position: fixed;
   top: 0;
   width: 100%;
   height: 5rem;
-  padding: 0 2rem; /* Espaciado lateral */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave debajo */
-  z-index: 1000; /* Asegura que el Navbar siempre esté encima */
+  padding: 0 2rem; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  z-index: 1000; 
 }
 
-/* Logo y mensaje a la izquierda */
+
 .navbar-logo {
   display: flex;
-  align-items: center; /* Alinea logo y mensaje en el centro vertical */
-  margin-right: auto; /* Logo y mensaje a la izquierda */
+  align-items: center; 
+  margin-right: auto; 
 }
 
 .navbar-logo img {
-  height: 3rem; /* Ajusta la altura del logo */
-  margin-right: 1rem; /* Espacio entre el logo y el mensaje */
+  height: 3rem; 
+  margin-right: 1rem; 
 }
 
-/* Mensaje de bienvenida */
+
 .welcome-message {
   font-weight: bold;
   font-size: 1rem;
   color: #333;
 }
 
-/* Links y botones a la derecha */
+
 .navbar-links {
   display: flex;
-  gap: 1rem; /* Espacio entre botones */
+  gap: 1rem; 
   align-items: center;
 }
 
@@ -57,40 +56,40 @@
   background-color: darkorange;
 }
 
-/* Quitar estilo de lista */
+
 .navbar-links li {
   list-style-type: none;
 }
 
-/* Para pantallas grandes */
+
 @media (min-width: 1024px) {
   .navbar {
       max-width: 1440px;
-      height: 5rem; /* Altura fija */
+      height: 5rem; 
   }
 }
 
-/* Versión móvil (414x850) */
+
 @media (max-width: 768px) {
   .navbar {
-      padding: 0 1rem; /* Reducir padding lateral en móviles */
-      height: 4rem; /* Reducir altura del navbar */
+      padding: 0 1rem; 
+      height: 4rem; 
   }
 
   .navbar-logo {
-      margin-right: auto; /* Logo y mensaje a la izquierda en móviles */
+      margin-right: auto; 
   }
 
   .navbar-links {
-      gap: 0.8rem; /* Menos espacio entre botones */
+      gap: 0.8rem; 
   }
 
   .navbar-links .navbar-button {
-      font-size: 0.9rem; /* Reducir el tamaño de los botones en móviles */
+      font-size: 0.9rem; 
       padding: 0.5rem 1rem;
   }
 
   .welcome-message {
-      font-size: 0.9rem; /* Ajustar el tamaño del texto de bienvenida */
+      font-size: 0.9rem; 
   }
 }

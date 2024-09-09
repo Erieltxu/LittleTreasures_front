@@ -1,21 +1,20 @@
 .footerWrapp {
   display: flex;
   flex-direction: row;
-  justify-content: space-between; /* Espacio entre los iconos y el texto */
+  justify-content: space-between; 
   align-items: center;
   background-color: #F6921D;
   position: fixed;
   bottom: 0;
-  width: 100%; /* Asegura que el footer ocupe todo el ancho */
+  width: 100%; 
   height: 3.5rem;
-  padding: 0; /* Elimina el padding redundante */
-  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave arriba del footer */
+  padding: 0; 
   z-index: 1000;
 }
 
 .imgFooterContainer {
   display: flex;
-  justify-content: flex-start; /* Alinea los iconos a la izquierda */
+  justify-content: flex-start; 
   align-items: center;
   width: auto;
   padding-left: 1rem;
@@ -28,37 +27,19 @@
 
 .footerP {
   color: black;
-  margin-left: auto; /* Alinea el texto al extremo derecho */
+  margin-left: auto; 
   font-size: 1.5rem;
-  white-space: nowrap; /* Asegura que el texto no se divida en varias líneas */
+  white-space: nowrap; 
   padding-right: 1rem;
 }
 
-/* Versión para pantallas pequeñas (móviles) */
-@media (max-width: 768px) {
+
+@media (max-width: 412px) {
   .footerWrapp {
-    flex-direction: column; /* Cambia a columna en móviles */
-    height: auto; /* Permite que el footer crezca si es necesario */
-    padding: 0.5rem 1rem; /* Ajusta el padding para móviles */
-  }
-
-  .imgFooterContainer {
-    justify-content: center; /* Centra los iconos en móviles */
-    margin-bottom: 0.5rem; /* Espacio entre los iconos y el texto */
-  }
-
-  .footerP {
-    margin-left: 0;
-    font-size: 1.5rem; /* Ajusta el tamaño del texto en móviles */
-    text-align: center; /* Centra el texto en móviles */
-    white-space: nowrap; /* Evita que el texto se divida en dos líneas */
+    flex-direction: column; 
+    height: auto; 
+    padding: 0.5rem ; 
   }
 }
 
-/* Versión para pantallas grandes */
-@media (min-width: 1024px) {
-  .footerWrapp {
-    max-width: 1440px; /* Alinea el ancho del footer con el del navbar */
-    margin: 0 auto; /* Centra el footer en pantallas grandes */
-  }
-}
+

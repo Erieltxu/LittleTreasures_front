@@ -1,9 +1,9 @@
 .events-page {
   position: relative;
-  background-color: white; /* Añadir un color de fondo sólido a la página de eventos */
+  background-color: white; 
 }
 
-h1 {
+h2 {
   text-align: center;
   margin-bottom: 20px;
 }
@@ -16,7 +16,7 @@ h1 {
   max-width: 800px;
   margin: 0 auto;
   overflow: hidden;
-  background-color: #fff; /* Añadir fondo blanco a la tabla de eventos */
+  background-color: #fff; 
 }
 
 .events-row {
@@ -38,16 +38,16 @@ h1 {
 }
 
 .event-column:first-child {
-  flex: 2; /* Aumenta el tamaño de la columna del nombre */
+  flex: 2; 
 }
 
 .events-row:last-child {
-  border-bottom: none; /* Eliminar el borde de la última fila */
+  border-bottom: none; 
 }
 
 .event-column:hover {
-  background-color: #f0f0f0; /* Cambia el color de fondo al pasar el cursor */
-  cursor: pointer; /* Cambia el cursor a una mano para indicar que es clickeable */
+  background-color: #f0f0f0; 
+  cursor: pointer; 
 }
 
 .back-arrow {
@@ -60,4 +60,27 @@ h1 {
 .arrow-icon {
   width: 2rem;
   height: 2rem;
+}
+
+
+.admin-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.admin-buttons button {
+  background-color: #f6921d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-right: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.admin-buttons button:hover {
+  background-color: #e57b00;
 }
