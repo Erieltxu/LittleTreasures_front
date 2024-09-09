@@ -1,13 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Home.css'; // Usamos los mismos estilos de Home
+import './Home.css'; 
 
 function HomeLogin() {
   const navigate = useNavigate();
 
   return (
     <main className="main">
-      {/* Logo encima del título */}
       <img src="assets/img/logo.jfif" alt="Logo" className="home-logo" />
       <h2>LITTLE<br /> TREASURES</h2>
       <div className="home-buttons"> 

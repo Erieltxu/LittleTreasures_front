@@ -11,7 +11,7 @@ function Navbar({ isAuthenticated, userName, onLogout }) {
     apiEndpoint: isAuthenticated ? USER_DETAIL : null,
     method: 'GET',  
     headers: {
-      Authorization: `Token ${localStorage.getItem('token') || ''}` // Verifica si el token existe
+      Authorization: `Token ${localStorage.getItem('token') || ''}` 
     }
   });
 

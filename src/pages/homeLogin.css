@@ -1,4 +1,3 @@
-/* Estilos generales para la página de inicio */
 .main {
     display: flex;
     flex-direction: column;
@@ -6,28 +5,28 @@
     align-items: center;
     height: 100vh;
     text-align: center;
-    background-color: transparent; /* Fondo transparente */
+    background-color: transparent; 
 }
 
-/* Estilo para el logo */
+
 .home-logo {
-    width: 150px; /* Ajusta el tamaño del logo */
+    width: 150px;
     height: auto;
-    margin-bottom: 1.5rem; /* Espacio entre el logo y el título */
+    margin-bottom: 1.5rem; 
 }
 
-/* Estilo para el título (h2) */
+
 h2 {
-    font-size: 2.5rem; /* Tamaño grande del título */
-    color: #0e0d0d; /* Color del título */
+    font-size: 2.5rem; 
+    color: #0e0d0d; 
     margin-bottom: 1rem;
-    font-weight: bold; /* Hacer el título más prominente */
+    font-weight: bold; 
 }
 
-/* Estilos para los botones */
+
 .home-buttons {
     display: flex;
-    flex-direction: column; /* Alinea los botones en columna */
+    flex-direction: column; 
     justify-content: center;
     gap: 1rem;
 }
@@ -42,8 +41,8 @@ h2 {
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: 200px; /* Ajusta el ancho del botón */
-    margin: 0 auto; /* Centra los botones horizontalmente */
+    width: 200px; 
+    margin: 0 auto; 
 }
 
 .home-button:hover {

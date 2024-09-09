@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import UseApi from '../../services/useApi';
-import { USER_DETAIL, UPDATE_USER, DELETE_USER } from '../../config/urls';
+import UseApi from '../services/useApi';
+import { USER_DETAIL, UPDATE_USER, DELETE_USER } from '../config/urls';
 import './profile.css';
 
 function Profile({ onLogout }) {
@@ -183,7 +183,7 @@ function Profile({ onLogout }) {
 
             <h2 className="profile-title">Bienvenido, {user.username}</h2>
 
-            <div className="form-scroll"> {/* Contenedor con scroll que incluye todas las secciones */}
+            <div className="form-scroll"> 
                 <form onSubmit={handleUpdateProfile}>
                     <label>
                         Nombre:

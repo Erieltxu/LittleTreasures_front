@@ -1,5 +1,5 @@
 import React from 'react';
-import './modalRegister.css'; // Asegúrate de que la ruta al CSS sea correcta
+import './modalRegister.css'; 
 
 function ModalRegister({ event, onClose, children, onRegister, onChildSelect, onCancelRegistration, selectedChildren }) {
   if (!children) return <p>Cargando niños...</p>;
@@ -7,7 +7,6 @@ function ModalRegister({ event, onClose, children, onRegister, onChildSelect, on
   return (
     <div className="modalRegister-overlay">
       <div className="modalRegister-content">
-        {/* Botón de cierre */}
         <button className="close-button" onClick={onClose}>X</button>
         <h2>Registrar niños en el evento {event.title}</h2>
         <p>Selecciona los niños que deseas registrar para el evento.</p>

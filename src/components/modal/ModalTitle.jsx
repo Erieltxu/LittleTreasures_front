@@ -1,14 +1,13 @@
 import React from 'react';
-import './modalTitle.css'; // Asegúrate de que la ruta al CSS sea correcta
+import './modalTitle.css'; 
 
 function ModalTitle({ event, onClose }) {
   return (
     <div className="modalTitle-overlay">
       <div className="modalTitle-content">
-        {/* Botón de cierre */}
         <button className="close-button" onClick={onClose}>X</button>
         
-        {/* Contenido del modal */}
+       
         {event ? (
           <div>
             <h2>{`Evento: ${event.title}`}</h2>

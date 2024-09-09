@@ -1,8 +1,8 @@
-/* Contenedor de perfil */
+
 .profile-container {
     max-width: 800px;
-    width: 80%; /* Usa un porcentaje para que el contenedor sea más estrecho en pantallas grandes */
-    margin: 5rem auto; /* Deja espacio debajo del Navbar */
+    width: 80%; 
+    margin: 5rem auto; 
     padding: 0.1rem 1rem;
     background-color: #eeecec;
     border-radius: 2rem;
@@ -11,14 +11,13 @@
     overflow: hidden;
 }
 
-/* Contenedor para hacer scroll solo en el formulario */
 .form-scroll {
     max-height: 70vh;
     overflow-y: auto;
     padding-right: 1rem;
 }
 
-/* Flecha de regreso */
+
 .back-arrow {
     position: absolute;
     margin-top: 2rem;
@@ -31,7 +30,7 @@
     height: 2rem;
 }
 
-/* Título */
+
 .profile-title {
     font-size: 2.5rem;
     color: #000;
@@ -40,7 +39,7 @@
     margin-top: 2rem;
 }
 
-/* Formulario */
+
 form {
     width: 100%;
     display: flex;
@@ -56,7 +55,7 @@ form label {
     color: #000;
 }
 
-/* Inputs no editables */
+
 form .non-editable {
     background-color: #fff;
     border: 1px solid #000;
@@ -68,7 +67,7 @@ form .non-editable {
     cursor: default;
 }
 
-/* Inputs editables */
+
 form input {
     padding: 0.5rem;
     border-radius: 0.8rem;
@@ -86,7 +85,7 @@ form input:focus {
     border: 2px solid #000;
 }
 
-/* Botón de Update Profile con borde negro */
+
 form button {
     width: 50%;
     padding: 0.6rem;
@@ -118,14 +117,13 @@ form button:hover {
     margin-bottom: 1rem;
 }
 
-/* Formulario de Añadir Hijo en dos columnas centradas */
 .add-child-section form {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 1rem;
     text-align: center;
-    width: 100%;
+    width: 30%;
 }
 
 .add-child-section form label {
@@ -140,7 +138,6 @@ form button:hover {
     border: 1px solid #000;
 }
 
-/* Botón de Añadir Hijo en una línea y con borde negro */
 .add-child-section button {
     border: 1px solid #000;
     background-color: #fff;
@@ -159,14 +156,14 @@ form button:hover {
     background-color: #e6e6e6;
 }
 
-/* Mensajes de error */
+
 .error {
     color: red;
     font-size: 0.9rem;
     text-align: center;
 }
 
-/* Lista de hijos */
+
 .children-list ul {
     list-style: none;
     padding: 0;
@@ -192,7 +189,7 @@ h3 {
     cursor: pointer;
 }
 
-/* Sección de eliminación del perfil */
+
 .delete-profile-section {
     margin-top: 2rem;
     text-align: center;
@@ -211,7 +208,7 @@ h3 {
     margin-bottom: 2rem;
 }
 
-/* Estilo cuando el botón está deshabilitado */
+
 .delete-profile-section button:disabled {
     background-color: #e6e6e6;
     color: #999;
@@ -222,24 +219,24 @@ h3 {
     background-color: #f0f0f0;
 }
 
-/* Media query para pantallas más grandes */
+
 @media (min-width: 1024px) {
     .profile-container {
-        width: 60%; /* Más ancho en pantallas grandes */
+        width: 60%; 
     }
 }
 
-/* Media query para pantallas medianas */
+
 @media (max-width: 1024px) {
     .profile-container {
-        width: 70%; /* Ajuste para pantallas medianas */
+        width: 70%; 
     }
 }
 
-/* Media query para pantallas pequeñas */
+
 @media (max-width: 414px) {
     .profile-container {
-        width: 90%; /* Ajuste para dispositivos móviles */
+        width: 90%; 
         margin-top: 3rem;
         padding: 1rem;
     }

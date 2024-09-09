@@ -5,39 +5,38 @@ body, html {
 }
 
 #root {
-  height: 100%; /* Asegura que ocupe toda la altura de la ventana */
+  height: 100%; 
 }
 
 .app-background {
-  background-image: url('assets/img/desktop.png'); /* Imagen de fondo con los círculos */
-  background-repeat: no-repeat; /* Evita la repetición de la imagen */
-  background-position: center; /* Mantiene la imagen centrada */
-  background-size: 100% auto; /* El ancho de la imagen es el 100%, la altura se ajusta automáticamente */
-  height: 100vh; /* Ocupa toda la altura de la ventana */
-  width: 100vw; /* Ocupa todo el ancho de la ventana */
+  background-image: url('assets/img/desktop.png'); 
+  background-repeat: no-repeat; 
+  background-position: center; 
+  background-size: 100% auto; 
+  height: 100vh; 
+  width: 100vw; 
   display: flex;
   justify-content: center;
   align-items: center;
 }
 main.content {
   flex: 1;
-  padding-top: 10rem; /* Asegura que el contenido no quede debajo del Navbar */
-  padding-bottom: 2rem; /* Asegura que el contenido no quede oculto bajo el Footer */
+  padding-top: 5rem; 
+  padding-bottom: 2rem; 
   display: flex;
   justify-content: center;
 }
-/* Para pantallas más pequeñas */
+
 @media (max-width: 1024px) {
   .app-background {
-    background-size: 100% auto; /* Mantiene el ancho al 100%, ajustando solo el área blanca */
+    background-size: 100% auto; 
     background-position: center;
   }
 }
 
-/* Para pantallas móviles pequeñas (414px o menos) */
 @media (max-width: 414px) {
   .app-background {
-    background-size: 100% auto; /* Mantén el tamaño fijo para los círculos */
+    background-size: 100% auto; 
     background-position: center;
   }
 }
