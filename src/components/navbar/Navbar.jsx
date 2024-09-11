@@ -21,13 +21,39 @@ function Navbar({ isAuthenticated, userName, onLogout }) {
     }
   }, [data]);
 
+  if (loading) {
+    return (
+      <nav className="navbar">
+        <div className="navbar-logo">
+          <Link to="/">
+            <img src="assets/img/logo.jfif" alt="Logo" />
+          </Link>
+          <p>Loading...</p> {/* Indicador de carga */}
+        </div>
+      </nav>
+    );
+  }
+
+  if (error) {
+    return (
+      <nav className="navbar">
+        <div className="navbar-logo">
+          <Link to="/">
+            <img src="assets/img/logo.jfif" alt="Logo" />
+          </Link>
+          <p>Error al cargar usuario: {error}</p> {/* Mensaje de error */}
+        </div>
+      </nav>
+    );
+  }
+
   return (
     <nav className="navbar">
       <div className="navbar-logo">
         <Link to="/">
           <img src="assets/img/logo.jfif" alt="Logo" />
         </Link>
-        {isAuthenticated && <p className="welcome-message">Hi, {username || userName}</p>}
+        {isAuthenticated && <p className="welcome-message">Hola, {username || userName}</p>}
       </div>
       <ul className="navbar-links">
         {isAuthenticated ? (

@@ -55,30 +55,32 @@ function Login({ onLoginSuccess }) {
         <div className="back-arrow" onClick={handleBackToHome}>
           <img src="/assets/icons/Arrow.svg" alt="Back to Home" className="arrow-icon" />
         </div>
-        <h2 className="login-title">Login</h2>
+        <h2 className="login-title">Acceder</h2>
       </div>
       <div className="form-group">
-        <label htmlFor="username">Username:</label>
+        <label htmlFor="username">Nombre de usuario:</label>
         <input
           type="text"
           id="username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          placeholder="Nombre de usuario"
           required
         />
       </div>
       <div className="form-group">
-        <label htmlFor="password">Password:</label>
+        <label htmlFor="password">Contraseña:</label>
         <input
           type="password"
           id="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          placeholder="Contraseña"
           required
         />
       </div>
       {error && <p className="error-message">{error}</p>}
-      <button type="submit" className="login-button">Login</button>
+      <button type="submit" className="login-button">ENTRAR</button>
     </form>
   </div>
 

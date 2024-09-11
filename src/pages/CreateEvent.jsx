@@ -51,7 +51,7 @@ function CreateEvent() {
         title: '',
         description: '',
         date: '',
-        spots: 0,
+        spots: '',
       });
     } catch (error) {
       setCreateError(error.message);

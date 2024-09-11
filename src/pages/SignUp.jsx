@@ -47,73 +47,76 @@ const Signup = ({ onSignUpSuccess }) => {
 
   return (
     <div className="signup-form-container">
+       {loading }? (
+        <p>Cargando...</p> ) : 
+
       <div className="scrollable-container">
         <form onSubmit={handleSubmit} className="signup-form">
           <div className="form-header">
             <div className="back-arrow" onClick={handleBackToHome}>
               <img src="/assets/icons/Arrow.svg" alt="Back to Home" className="arrow-icon" />
             </div>
-            <h2 className="signup-title">Sign Up</h2>
+            <h2 className="signup-title">Registrarse</h2>
           </div>
           <div className="form-group">
-            <label htmlFor="first_name">First Name</label>
+            <label htmlFor="first_name">Nombre</label>
             <input
               type="text"
               id="first_name"
               value={first_name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="First Name"
+              placeholder="Nombre"
               required
             />
           </div>
           <div className="form-group">
-            <label htmlFor="last_name">Last Name</label>
+            <label htmlFor="last_name">Apellido</label>
             <input
               type="text"
               id="last_name"
               value={last_name}
               onChange={(e) => setLastname(e.target.value)}
-              placeholder="Last Name"
+              placeholder="Apellido"
               required
             />
           </div>
           <div className="form-group">
-            <label htmlFor="username">Username</label>
+            <label htmlFor="username">Nombre de usuario</label>
             <input
               type="text"
               id="username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              placeholder="Username"
+              placeholder="Nombre de usuario"
               required
             />
           </div>
           <div className="form-group">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">Correo electrónico</label>
             <input
               type="email"
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Email"
+              placeholder="Correo electrónico"
               required
             />
           </div>
           <div className="form-group">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">Contraseña</label>
             <input
               type="password"
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="Password"
+              placeholder="Contraseña"
               required
             />
           </div>
           <button type="submit" className="signup-button">
-            Sign Up
+            Registrar
           </button>
-          {error && <p className="error-message">{error}</p>}
+          {error && <p className="error-message">{error.message || error}</p>}
         </form>
       </div>
     </div>
