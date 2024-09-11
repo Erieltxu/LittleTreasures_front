@@ -206,7 +206,7 @@ function Profile({ onLogout }) {
                         />
                     </label>
                     <label>
-                        Username:
+                        Nombre de usuario:
                         <input
                             type="text"
                             name="username"
@@ -216,7 +216,7 @@ function Profile({ onLogout }) {
                         />
                     </label>
                     <label>
-                        Email:
+                        Correo electrónico:
                         <input
                             type="email"
                             name="email"
@@ -226,7 +226,7 @@ function Profile({ onLogout }) {
                         />
                     </label>
                     <label>
-                        Current Password:
+                        Contraseña actual:
                         <input
                             type="password"
                             name="current_password"
@@ -236,7 +236,7 @@ function Profile({ onLogout }) {
                         />
                     </label>
                     <label>
-                        New Password:
+                        Nueva contraseña:
                         <input
                             type="password"
                             name="password"
@@ -245,7 +245,7 @@ function Profile({ onLogout }) {
                         />
                     </label>
                     <label>
-                        Confirm New Password:
+                        Confirmar nueva contraseña:
                         <input
                             type="password"
                             name="confirm_password"
@@ -253,7 +253,7 @@ function Profile({ onLogout }) {
                             onChange={handleChange}
                         />
                     </label>
-                    <button type="submit" disabled={isSubmitting}>Update Profile</button>
+                    <button type="submit" disabled={isSubmitting}>Actualizar perfil</button>
                     {updateError && <p className="error">{updateError}</p>}
                 </form>
 
@@ -308,11 +308,11 @@ function Profile({ onLogout }) {
                             checked={isConfirmed}
                             onChange={handleCheckboxChange}
                         />
-                        Confirm delete profile
+                        Confirmar borrar perfil
                     </label>
                     <br />
                     <button onClick={handleDeleteProfile} disabled={!isConfirmed || isSubmitting}>
-                        Delete Profile
+                        Borrar perfil
                     </button>
                     {deleteError && <p className="error">{deleteError}</p>}
                 </div>

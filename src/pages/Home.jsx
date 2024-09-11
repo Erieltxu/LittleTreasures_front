@@ -14,13 +14,13 @@ function Home() {
           className="home-button" 
           onClick={() => navigate('/login')}
         >
-          Login
+          ACCEDER
         </button>
         <button 
           className="home-button" 
           onClick={() => navigate('/signup')}
         >
-          Sign Up
+          REGISTRARSE
         </button>
       </div>
     </main>
