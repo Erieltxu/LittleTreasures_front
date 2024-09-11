@@ -1,0 +1,143 @@
+.event-changes-page {
+    padding: 2rem;
+    position: relative;
+  }
+  
+
+  .back-arrow {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    cursor: pointer;
+  }
+  
+  .arrow-icon {
+    width: 2rem;
+    height: 2rem;
+  }
+  
+
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+ 
+  .event-form label, 
+  .event-form textarea, 
+  .event-form input {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .event-form input, 
+  .event-form textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  .event-form button {
+    background-color: #f6921d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: block;
+    margin: 10px auto;
+    transition: background-color 0.3s ease;
+  }
+  
+  .event-form button:hover {
+    background-color: #e57b00;
+  }
+  
+
+  .delete-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: block;
+    margin: 20px auto; 
+    transition: background-color 0.3s ease;
+  }
+  
+  .delete-button:hover {
+    background-color: darkred;
+  }
+  
+
+  .error {
+    color: red;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+
+  .events-list {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .event-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .event-item:hover {
+    background-color: #f0f0f0;
+  }
+  
+
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+
+  .modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+  }
+  
+
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .close-button:hover {
+    color: red;
+  }
+  .success {
+    color: green;
+    font-size: 1rem;
+  }
